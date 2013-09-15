@@ -7,8 +7,8 @@ namespace HdrHistogram.Tests
     [TestFixture]
     public class HistogramDataTest {
 
-        const long highestTrackableValue = 3600L * 1000 * 1000; // 1 hour in usec units
-        const int numberOfSignificantValueDigits = 3; // Maintain at least 3 decimal points of accuracy
+        const long HighestTrackableValue = 3600L * 1000 * 1000; // 1 hour in usec units
+        const int NumberOfSignificantValueDigits = 3; // Maintain at least 3 decimal points of accuracy
         static Histogram histogram;
         static Histogram rawHistogram;
         static Histogram postCorrectedHistogram;
@@ -16,8 +16,8 @@ namespace HdrHistogram.Tests
         [TestFixtureSetUp]
         public void TestFixtureSetUp()
         {
-            histogram = new Histogram(highestTrackableValue, numberOfSignificantValueDigits);
-            rawHistogram = new Histogram(highestTrackableValue, numberOfSignificantValueDigits);
+            histogram = new Histogram(HighestTrackableValue, NumberOfSignificantValueDigits);
+            rawHistogram = new Histogram(HighestTrackableValue, NumberOfSignificantValueDigits);
             // Log hypothetical scenario: 100 seconds of "perfect" 1msec results, sampled
             // 100 times per second (10,000 results), followed by a 100 second pause with
             // a single (100 second) recorded result. Recording is done indicating an expected
@@ -84,8 +84,10 @@ namespace HdrHistogram.Tests
             const double ExpectedRawMean = ((10000.0 * 1000) + (1.0 * 100000000))/10001;
             const double ExpectedMean = (1000.0 + 50000000.0)/2;
             // We expect to see the mean to be accurate to ~3 decimal points (~0.1%):
-            Assert.AreEqual(ExpectedRawMean, rawHistogram.GetHistogramData().GetMean(), ExpectedRawMean * 0.001, "Raw mean is " + ExpectedRawMean + " +/- 0.1%");
-            Assert.AreEqual(ExpectedMean, histogram.GetHistogramData().GetMean(), ExpectedMean * 0.001, "Mean is " + ExpectedMean + " +/- 0.1%");
+            Assert.AreEqual(ExpectedRawMean, rawHistogram.GetHistogramData().GetMean(), ExpectedRawMean * 0.001, 
+                string.Format("Raw mean is {0} +/- 0.1%", ExpectedRawMean));
+            Assert.AreEqual(ExpectedMean, histogram.GetHistogramData().GetMean(), ExpectedMean * 0.001, 
+                string.Format("Mean is {0} +/- 0.1%", ExpectedMean));
         }
 
         [Test]
@@ -105,7 +107,8 @@ namespace HdrHistogram.Tests
             // We expect to see the standard deviations to be accurate to ~3 decimal points (~0.1%):
             Assert.AreEqual(expectedRawStdDev, rawHistogram.GetHistogramData().GetStdDeviation(), expectedRawStdDev * 0.001, 
                 "Raw standard deviation is " + expectedRawStdDev + " +/- 0.1%");
-            Assert.AreEqual(expectedStdDev, histogram.GetHistogramData().GetStdDeviation(), expectedStdDev * 0.001,"Standard deviation is " + expectedStdDev + " +/- 0.1%");
+            Assert.AreEqual(expectedStdDev, histogram.GetHistogramData().GetStdDeviation(), expectedStdDev * 0.001,
+                string.Format("Standard deviation is {0} +/- 0.1%", expectedStdDev));
         }
 
         [Test]
@@ -207,7 +210,7 @@ namespace HdrHistogram.Tests
                         "Raw Linear 100 msec bucket # 999 added a count of 1");
                 } else {
                     Assert.AreEqual(0, countAddedInThisBucket , 
-                        "Raw Linear 100 msec bucket # " + index + " added a count of 0");
+                        string.Format("Raw Linear 100 msec bucket # {0} added a count of 0", index));
                 }
                 index++;
             }
@@ -308,9 +311,9 @@ namespace HdrHistogram.Tests
                 }
                 Assert.True(v.GetCountAtValueIteratedTo() != 0,
                         string.Format("The count in recorded bucket #{0} is not 0", index));
-                Assert.AreEqual(v.GetCountAtValueIteratedTo(),
-                        v.GetCountAddedInThisIterationStep(), 
-                        string.Format("The count in recorded bucket #{0} is exactly the amount added since the last iteration ", index));
+                Assert.AreEqual(v.GetCountAtValueIteratedTo(), v.GetCountAddedInThisIterationStep(), 
+                        string.Format("The count in recorded bucket #{0} is exactly the amount added since the last iteration ", 
+                            index));
                 totalAddedCounts += v.GetCountAddedInThisIterationStep();
                 index++;
             }
@@ -358,10 +361,12 @@ namespace HdrHistogram.Tests
                 if (index == 1000)
                 {
                     Assert.AreEqual(10000, countAddedInThisBucket, 
-                        string.Format("AllValues bucket # 0 [{0}..{1}] added a count of 10000", v.GetValueIteratedFrom(), v.GetValueIteratedTo()));
+                        string.Format("AllValues bucket # 0 [{0}..{1}] added a count of 10000", 
+                            v.GetValueIteratedFrom(), v.GetValueIteratedTo()));
                 }
                 Assert.AreEqual(v.GetCountAtValueIteratedTo(), v.GetCountAddedInThisIterationStep(), 
-                    string.Format("The count in AllValues bucket #{0} is exactly the amount added since the last iteration ", index));
+                    string.Format("The count in AllValues bucket #{0} is exactly the amount added since the last iteration ", 
+                        index));
                 totalAddedCounts += v.GetCountAddedInThisIterationStep();
                 index++;
             }
