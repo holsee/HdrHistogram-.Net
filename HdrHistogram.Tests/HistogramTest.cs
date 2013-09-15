@@ -251,10 +251,10 @@
             //}
 
             //Assert.NotNull(newHistogram);
-            //assertEqual(histogram, newHistogram);
+            //AssertEqual(histogram, newHistogram);
         }
 
-        private void assertEqual(AbstractHistogram expectedHistogram, AbstractHistogram actualHistogram)
+        private void AssertEqual(AbstractHistogram expectedHistogram, AbstractHistogram actualHistogram)
         {
             Assert.AreEqual(expectedHistogram, actualHistogram);
             Assert.AreEqual(
@@ -306,35 +306,35 @@
             histogram.RecordValue(TestValueLevel * 10);
             histogram.RecordValueWithExpectedInterval(histogram.GetHighestTrackableValue() - 1, 31);
         
-            assertEqual(histogram, histogram.Copy());
+            this.AssertEqual(histogram, histogram.Copy());
   
             IntHistogram intHistogram = new IntHistogram(HighestTrackableValue, NumberOfSignificantValueDigits);
             intHistogram.RecordValue(TestValueLevel);
             intHistogram.RecordValue(TestValueLevel * 10);
             intHistogram.RecordValueWithExpectedInterval(intHistogram.GetHighestTrackableValue() - 1, 31);
         
-            assertEqual(intHistogram, intHistogram.Copy());
+            this.AssertEqual(intHistogram, intHistogram.Copy());
   
             ShortHistogram shortHistogram = new ShortHistogram(HighestTrackableValue, NumberOfSignificantValueDigits);
             shortHistogram.RecordValue(TestValueLevel);
             shortHistogram.RecordValue(TestValueLevel * 10);
             shortHistogram.RecordValueWithExpectedInterval(shortHistogram.GetHighestTrackableValue() - 1, 31);
         
-            assertEqual(shortHistogram, shortHistogram.Copy());
+            this.AssertEqual(shortHistogram, shortHistogram.Copy());
   
             AtomicHistogram atomicHistogram = new AtomicHistogram(HighestTrackableValue, NumberOfSignificantValueDigits);
             atomicHistogram.RecordValue(TestValueLevel);
             atomicHistogram.RecordValue(TestValueLevel * 10);
             atomicHistogram.RecordValueWithExpectedInterval(atomicHistogram.GetHighestTrackableValue() - 1, 31);
         
-            assertEqual(atomicHistogram, atomicHistogram.Copy());
+            this.AssertEqual(atomicHistogram, atomicHistogram.Copy());
   
             SynchronizedHistogram syncHistogram = new SynchronizedHistogram(HighestTrackableValue, NumberOfSignificantValueDigits);
             syncHistogram.RecordValue(TestValueLevel);
             syncHistogram.RecordValue(TestValueLevel * 10);
             syncHistogram.RecordValueWithExpectedInterval(syncHistogram.GetHighestTrackableValue() - 1, 31);
         
-            assertEqual(syncHistogram, syncHistogram.Copy());
+            this.AssertEqual(syncHistogram, syncHistogram.Copy());
         } 
     }
 }

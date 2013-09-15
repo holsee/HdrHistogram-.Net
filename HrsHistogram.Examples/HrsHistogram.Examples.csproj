@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{49D9F71A-5C6A-46CE-BDA6-01B4C02276E7}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4ED7DF62-EBF7-477F-801F-7FDD768D8907}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HdrHistogram.Tests</RootNamespace>
-    <AssemblyName>HdrHistogram.Tests</AssemblyName>
+    <RootNamespace>HrsHistogram.Examples</RootNamespace>
+    <AssemblyName>HrsHistogram.Examples</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,19 +33,13 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HistogramDataTest.cs" />
-    <Compile Include="HistogramPerfTest.cs" />
-    <Compile Include="HistogramTest.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SimpleHistogramExample.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HdrHistogram\HdrHistogram.csproj">

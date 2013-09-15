@@ -151,7 +151,12 @@
             throw new NotImplementedException();
         }
 
-        public void OutputPercentileDistribution(TextWriter @out, int i, double d)
+        public void OutputPercentileDistribution(TextWriter @out, double i, double d)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OutputPercentileDistribution(TextWriter @out, double i)
         {
             throw new NotImplementedException();
         }
