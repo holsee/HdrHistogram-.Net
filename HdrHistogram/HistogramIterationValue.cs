@@ -17,7 +17,7 @@
             throw new System.NotImplementedException();
         }
 
-        public decimal GetCountAtValueIteratedTo()
+        public long GetCountAtValueIteratedTo()
         {
             throw new System.NotImplementedException();
         }

@@ -14,7 +14,7 @@ namespace HdrHistogram.Tests
         const int NumberOfSignificantValueDigits = 3; // Maintain at least 3 decimal points of accuracy
         static Histogram histogram;
         static Histogram rawHistogram;
-        static Histogram postCorrectedHistogram;
+        static AbstractHistogram postCorrectedHistogram;
 
         [TestFixtureSetUp]
         public void TestFixtureSetUp()

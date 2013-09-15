@@ -3,6 +3,8 @@
     using System;
     using System.Threading;
 
+    using HdrHistogram.GoodieBag;
+
     using NUnit.Framework;
 
     public class HistogramPerfTest
@@ -17,8 +19,6 @@
                 return DateTime.Now.ToFileTimeUtc() * 100;
             }
         }
-
-        
 
         const long HighestTrackableValue = 3600L * 1000 * 1000; // e.g. for 1 hr in usec units
         const int NumberOfSignificantValueDigits = 3;
@@ -149,17 +149,6 @@
         }
 
         #endregion
-    }
-
-    /// <summary>
-    /// TODO: Long.numberOfLeadingZeros(long);
-    /// </summary>
-    public static class Long
-    {
-        public static int NumberOfLeadingZeros(long i)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

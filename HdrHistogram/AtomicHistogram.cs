@@ -1,18 +1,12 @@
 ﻿namespace HdrHistogram
 {
     using System;
-    using System.Collections.Generic;
 
-    public class Histogram : AbstractHistogram
+    public class AtomicHistogram : AbstractHistogram
     {
-        public Histogram(long highestTrackableValue, int numberOfSignificantValueDigits)
+        public AtomicHistogram(long highestTrackableValue, int numberOfSignificantValueDigits)
             : base(highestTrackableValue, numberOfSignificantValueDigits)
         {
-        }
-
-        public string MedianEquivalentValue(int p0)
-        {
-            throw new NotImplementedException();
         }
 
         public override long GetCountAtIndex(int index)
@@ -59,18 +53,13 @@
         {
             throw new NotImplementedException();
         }
-    
+
         public override AbstractHistogram CopyCorrectedForCoordinatedOmission(long expectedIntervalBetweenValueSamples)
         {
             throw new NotImplementedException();
         }
 
         public override int GetEstimatedFootprintInBytes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string LowestEquivalentValue(int i)
         {
             throw new NotImplementedException();
         }

@@ -2,6 +2,8 @@
 {
     using System;
 
+    using HdrHistogram.GoodieBag;
+
     using NUnit.Framework;
 
     [TestFixture]
@@ -146,42 +148,42 @@
         [Test]
         public void TestSizeOfEquivalentValueRange() {
             Histogram histogram = new Histogram(HighestTrackableValue, NumberOfSignificantValueDigits);
-            Assert.AreEqual("Size of equivalent range for value 1 is 1",
-                    1, histogram.SizeOfEquivalentValueRange(1));
-            Assert.AreEqual("Size of equivalent range for value 2500 is 2",
-                    2, histogram.SizeOfEquivalentValueRange(2500));
-            Assert.AreEqual("Size of equivalent range for value 8191 is 4",
-                    4, histogram.SizeOfEquivalentValueRange(8191));
-            Assert.AreEqual("Size of equivalent range for value 8192 is 8",
-                    8, histogram.SizeOfEquivalentValueRange(8192));
-            Assert.AreEqual("Size of equivalent range for value 10000 is 8",
-                    8, histogram.SizeOfEquivalentValueRange(10000));
+            Assert.AreEqual(1, histogram.SizeOfEquivalentValueRange(1), 
+                "Size of equivalent range for value 1 is 1");
+            Assert.AreEqual(2, histogram.SizeOfEquivalentValueRange(2500), 
+                "Size of equivalent range for value 2500 is 2");
+            Assert.AreEqual(4, histogram.SizeOfEquivalentValueRange(8191), 
+                "Size of equivalent range for value 8191 is 4");
+            Assert.AreEqual(8, histogram.SizeOfEquivalentValueRange(8192), 
+                "Size of equivalent range for value 8192 is 8");
+            Assert.AreEqual(8, histogram.SizeOfEquivalentValueRange(10000), 
+                "Size of equivalent range for value 10000 is 8");
         }
 
         [Test]
         public void TestLowestEquivalentValue() {
             Histogram histogram = new Histogram(HighestTrackableValue, NumberOfSignificantValueDigits);
-            Assert.AreEqual("The lowest equivalent value to 10007 is 10000",
-                    10000, histogram.LowestEquivalentValue(10007));
-            Assert.AreEqual("The lowest equivalent value to 10009 is 10008",
-                    10008, histogram.LowestEquivalentValue(10009));
+            Assert.AreEqual(10000, histogram.LowestEquivalentValue(10007), 
+                    "The lowest equivalent value to 10007 is 10000");
+            Assert.AreEqual(10008, histogram.LowestEquivalentValue(10009), 
+                    "The lowest equivalent value to 10009 is 10008");
         }
 
         [Test]
         public void TestHighestEquivalentValue() {
             Histogram histogram = new Histogram(HighestTrackableValue, NumberOfSignificantValueDigits);
-            Assert.AreEqual("The highest equivalent value to 8180 is 8183",
-                    8183, histogram.HighestEquivalentValue(8180));
-            Assert.AreEqual("The highest equivalent value to 8187 is 8191",
-                    8191, histogram.HighestEquivalentValue(8191));
-            Assert.AreEqual("The highest equivalent value to 8193 is 8199",
-                    8199, histogram.HighestEquivalentValue(8193));
-            Assert.AreEqual("The highest equivalent value to 9995 is 9999",
-                    9999, histogram.HighestEquivalentValue(9995));
-            Assert.AreEqual("The highest equivalent value to 10007 is 10007",
-                    10007, histogram.HighestEquivalentValue(10007));
-            Assert.AreEqual("The highest equivalent value to 10008 is 10015",
-                    10015, histogram.HighestEquivalentValue(10008));
+            Assert.AreEqual(8183, histogram.HighestEquivalentValue(8180), 
+                "The highest equivalent value to 8180 is 8183");
+            Assert.AreEqual(8191, histogram.HighestEquivalentValue(8191), 
+                "The highest equivalent value to 8187 is 8191");
+            Assert.AreEqual(8199, histogram.HighestEquivalentValue(8193), 
+                "The highest equivalent value to 8193 is 8199");
+            Assert.AreEqual(9999, histogram.HighestEquivalentValue(9995), 
+                "The highest equivalent value to 9995 is 9999");
+            Assert.AreEqual(10007, histogram.HighestEquivalentValue(10007), 
+                "The highest equivalent value to 10007 is 10007");
+            Assert.AreEqual(10015, histogram.HighestEquivalentValue(10008), 
+                "The highest equivalent value to 10008 is 10015");
         }
 
         [Test]
