@@ -1,4 +1,4 @@
-.NET Port of https://github.com/giltene/HdrHistogram by Steven Holdsworth
+.NET Port of https://github.com/giltene/HdrHistogram
 
 I notice that the Java version of the disruptor (https://github.com/LMAX-Exchange/disruptor) is using the HdrHistogram for performance metrics. 
 I hope to provide the same for the .NET port of the Disruptor (https://github.com/disruptor-net/Disruptor-net).
