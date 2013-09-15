@@ -2,10 +2,13 @@
 
 namespace HdrHistogram.Tests
 {
+    using System.Threading;
+
     using NUnit.Framework;
 
     [TestFixture]
-    public class HistogramDataTest {
+    public class HistogramDataTest 
+    {
 
         const long HighestTrackableValue = 3600L * 1000 * 1000; // 1 hour in usec units
         const int NumberOfSignificantValueDigits = 3; // Maintain at least 3 decimal points of accuracy
