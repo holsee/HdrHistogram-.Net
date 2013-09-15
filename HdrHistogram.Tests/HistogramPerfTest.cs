@@ -17,16 +17,8 @@
                 return DateTime.Now.ToFileTimeUtc() * 100;
             }
         }
-        /// <summary>
-        /// TODO: Long.numberOfLeadingZeros(long);
-        /// </summary>
-        private static class Long
-        {
-            public static long NumberOfLeadingZeros(long i)
-            {
-                throw new NotImplementedException();
-            }
-        }
+
+        
 
         const long HighestTrackableValue = 3600L * 1000 * 1000; // e.g. for 1 hr in usec units
         const int NumberOfSignificantValueDigits = 3;
@@ -157,6 +149,17 @@
         }
 
         #endregion
+    }
+
+    /// <summary>
+    /// TODO: Long.numberOfLeadingZeros(long);
+    /// </summary>
+    public static class Long
+    {
+        public static int NumberOfLeadingZeros(long i)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

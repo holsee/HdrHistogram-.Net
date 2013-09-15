@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="HistogramDataTest.cs" />
     <Compile Include="HistogramPerfTest.cs" />
+    <Compile Include="HistogramTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

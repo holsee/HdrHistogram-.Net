@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
 
     public abstract class AbstractHistogram
     {
@@ -103,6 +104,56 @@
         public long GetMinValue()
         {
             throw new System.NotImplementedException();
+        }
+
+        public long GetHighestTrackableValue()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetNumberOfSignificantValueDigits()
+        {
+            throw new NotImplementedException();
+        }
+
+        public long GetEstimatedFootprintInBytes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Add(Histogram other)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SizeOfEquivalentValueRange(int p0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string LowestEquivalentValue(int p0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string HighestEquivalentValue(int p0)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool HasOverflowed()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public AbstractHistogram Copy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OutputPercentileDistribution(TextWriter @out, int i, double d)
+        {
+            throw new NotImplementedException();
         }
     }
 }

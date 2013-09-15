@@ -10,6 +10,10 @@
             throw new System.NotImplementedException();
         }
 
+        public string MedianEquivalentValue(int p0)
+        {
+            throw new NotImplementedException();
+        }
     }
     
     public class AtomicHistogram : AbstractHistogram
