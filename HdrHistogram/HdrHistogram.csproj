@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AbstractHistogram.cs" />
     <Compile Include="Histogram.cs" />
     <Compile Include="HistogramIterationValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
